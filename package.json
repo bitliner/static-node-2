@@ -1,0 +1,13 @@
+{
+    "name": "static-node",
+    "version": "0.0.0",
+    "dependencies": {
+        "lodash": "~2.4.1",
+        "express": "~4.11.2",
+        "express-bunyan-logger": "~1.1.1"
+    },
+    "scripts": {
+        "start": "node app.js",
+        "test": "grunt test"
+    }
+}

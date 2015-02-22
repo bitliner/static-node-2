@@ -1,0 +1,10 @@
+frontend:
+#  image: node:0.10-onbuild
+  build: .
+  ports:
+    - 9001:80
+  environment:
+    - PORT=80
+  volumes:
+    - ./dist:/usr/src/app/dist
+    - ./logs:/usr/src/app/logs
