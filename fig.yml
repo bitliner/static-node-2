@@ -1,5 +1,5 @@
 frontend:
-  build: .
+  image: bitliner/static-node
   ports:
     - 9001:80
   environment:
