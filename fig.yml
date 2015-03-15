@@ -1,9 +1,7 @@
 frontend:
-  image: bitliner/static-node
+  image: bitliner/static-node-2
   ports:
     - 9001:80
-  environment:
-    - PORT=80
   volumes:
     - ./public:/usr/src/app/dist
     - ./logs:/usr/src/app/logs
