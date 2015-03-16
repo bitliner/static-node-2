@@ -3,8 +3,6 @@ frontend:
   mem_limit: 512m
   ports:
     - 9001:80
-  environment:
-    - NODE_ENV=production
   volumes:
     - ./public:/usr/src/app/dist
     - ./logs:/usr/src/app/logs
