@@ -5,7 +5,10 @@ Docker image of nodejs app to host static sites
 
 1. Create a fig.yml or docker-compose.yml (install docker-compose if you did not do it yet)
 2. Set ports parameter specifying the port to bind to port 80 of the container
-3. specify volumens, specifically folder for logs and folder containing static file 
+3. specify volumes: specifically folder for logs and folder containing static file 
+4. run `docker-compose up -d`
+
+No need to write some server logic! It is already included in the container.
 
 
 ```
