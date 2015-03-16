@@ -2,6 +2,7 @@
   "name": "static-node",
   "version": "0.0.0",
   "dependencies": {
+    "compression": "^1.4.2",
     "express": "~4.11.2",
     "express-bunyan-logger": "~1.1.1",
     "express-cluster": "0.0.3",
