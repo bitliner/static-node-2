@@ -1,7 +1,7 @@
 # static-node-2
 Docker image of nodejs app to host static sites
 
-## Usage
+## Usage with docker-compose
 
 1. Create a fig.yml or docker-compose.yml (install docker-compose if you did not do it yet)
 2. Set ports parameter specifying the port to bind to port 80 of the container
