@@ -1,6 +1,6 @@
 var express = require('express');
 var cluster = require('express-cluster');
-var compression=require('compression');
+var compression = require('compression');
 
 
 cluster(function(worker) {
@@ -16,17 +16,32 @@ cluster(function(worker) {
         name: 'logger',
         streams: [{
             level: 'info',
-            stream  : process.stdout
+            stream: process.stdout
         }, {
             level: 'info',
             path: path.resolve(process.cwd(), 'logs/log'),
             type: 'file'
         }]
     }));
-    
-    app.use(compression({ threshold: 0 })); 
-    app.use(express.static(path.join(__dirname, 'dist'),{maxAge:oneDay}));
-    
+
+    app.use(compression({
+        threshold: 0
+    }));
+    app.use(express.static(path.join(__dirname, 'dist'), {
+        maxAge: oneDay
+    }));
+
+    app.use(function(req, res, next) {
+        //    res.header('Access-Control-Allow-Origin', 'http://stats.wonderflow.co');
+        res.header('Access-Control-Allow-Origin', '*');
+        res.header('Access-Control-Allow-Methods', 'GET,PUT,POST,DELETE,OPTIONS');
+        res.header('Access-Control-Allow-Headers', 'Content-Type, Authorization, Content-Length, X-Requested-With');
+        if ('OPTIONS' == req.method && req.host.indexOf('wonderflow') >= 0) {
+            return res.send(200);
+        }
+        return next();
+    });
+
 
 
     var HTTP_PORT;
@@ -40,5 +55,3 @@ cluster(function(worker) {
 
 
 }, {});
-
-
